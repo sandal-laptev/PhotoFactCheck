@@ -1,0 +1,9 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <ListPreference
+        android:key="coord_format"
+        android:title="Формат координат"
+        android:entries="@array/format_names"
+        android:entryValues="@array/format_values"
+        android:defaultValue="decimal"
+        android:summary="%s" />
+</PreferenceScreen>
