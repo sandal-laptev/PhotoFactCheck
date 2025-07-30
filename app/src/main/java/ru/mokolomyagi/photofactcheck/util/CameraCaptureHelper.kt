@@ -1,4 +1,4 @@
-package ru.mokolomyagi.photofactcheck
+package ru.mokolomyagi.photofactcheck.util
 
 import android.Manifest
 import android.content.Context
@@ -16,14 +16,22 @@ import androidx.camera.core.ImageCaptureException
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.exifinterface.media.ExifInterface
-import androidx.preference.PreferenceManager
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import ru.mokolomyagi.photofactcheck.datastore.UserPreferencesRepository
 import java.io.File
 import java.io.FileOutputStream
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
-class CameraCaptureHelper(private val context: Context) {
+class CameraCaptureHelper(
+    private val context: Context,
+    private val repository: UserPreferencesRepository
+) {
 
     private fun getLocation(): Location? {
         val locationManager = context.getSystemService(Context.LOCATION_SERVICE) as LocationManager
@@ -74,9 +82,8 @@ class CameraCaptureHelper(private val context: Context) {
         return result
     }
 
-    private fun getUserFormat(): GeoFormatConverter.Format {
-        val prefs = PreferenceManager.getDefaultSharedPreferences(context)
-        val value = prefs.getString("coord_format", "decimal") ?: "decimal"
+    suspend fun getUserFormat(): GeoFormatConverter.Format {
+        val value = repository.coordFormatFlow.first()
         return GeoFormatConverter.Format.fromValue(value)
     }
 
@@ -97,36 +104,40 @@ class CameraCaptureHelper(private val context: Context) {
             ContextCompat.getMainExecutor(context),
             object : ImageCapture.OnImageSavedCallback {
                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
-                    try {
-                        val bitmap = BitmapFactory.decodeFile(outputFile.absolutePath)
-                        val location = getLocation()
+                    CoroutineScope(Dispatchers.IO).launch {
+                        try {
+                            val bitmap = BitmapFactory.decodeFile(outputFile.absolutePath)
+                            val location = getLocation()
 
-                        val timestamp = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
-                            .format(Date())
+                            val timestamp = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+                                .format(Date())
 
-                        val format = getUserFormat()
-                        val locationText = if (location != null)
-                            GeoFormatConverter.formatLocation(location, format)
-                        else "Location: Unknown"
+                            val format = getUserFormat()
+                            val locationText = if (location != null)
+                                GeoFormatConverter.formatLocation(location, format)
+                            else "Location: Unknown"
 
-                        val watermarkText = "$timestamp\n$locationText"
-                        val watermarkedBitmap = addWatermarkToBitmap(bitmap, watermarkText)
+                            val watermarkText = "$timestamp\n$locationText"
+                            val watermarkedBitmap = addWatermarkToBitmap(bitmap, watermarkText)
 
-                        // Сохраняем обратно
-                        FileOutputStream(outputFile).use {
-                            watermarkedBitmap.compress(Bitmap.CompressFormat.JPEG, 95, it)
+                            FileOutputStream(outputFile).use {
+                                watermarkedBitmap.compress(Bitmap.CompressFormat.JPEG, 95, it)
+                            }
+
+                            val exif = ExifInterface(outputFile.absolutePath)
+                            exif.setAttribute(ExifInterface.TAG_DATETIME, timestamp)
+                            if (location != null) exif.setGpsInfo(location)
+                            exif.saveAttributes()
+
+                            withContext(Dispatchers.Main) {
+                                onComplete(outputFile)
+                            }
+                        } catch (e: Exception) {
+                            Log.e("CameraCaptureHelper", "Error processing photo", e)
+                            withContext(Dispatchers.Main) {
+                                onComplete(null)
+                            }
                         }
-
-                        // Добавляем EXIF
-                        val exif = ExifInterface(outputFile.absolutePath)
-                        exif.setAttribute(ExifInterface.TAG_DATETIME, timestamp)
-                        if (location != null) exif.setGpsInfo(location)
-                        exif.saveAttributes()
-
-                        onComplete(outputFile)
-                    } catch (e: Exception) {
-                        Log.e("CameraCaptureHelper", "Error processing photo", e)
-                        onComplete(null)
                     }
                 }
 

@@ -8,7 +8,7 @@ pluginManagement {
             }
         }
         mavenCentral()
-        gradlePluginPortal()
+        gradlePluginPortal() // <-- Add this line
     }
 }
 dependencyResolutionManagement {

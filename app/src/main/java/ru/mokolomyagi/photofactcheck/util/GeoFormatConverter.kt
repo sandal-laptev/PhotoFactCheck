@@ -1,4 +1,4 @@
-package ru.mokolomyagi.photofactcheck
+package ru.mokolomyagi.photofactcheck.util
 
 import android.location.Location
 import kotlin.math.abs

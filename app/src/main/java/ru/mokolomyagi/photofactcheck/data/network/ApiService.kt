@@ -1,4 +1,4 @@
-package ru.mokolomyagi.photofactcheck
+package ru.mokolomyagi.photofactcheck.data.network
 
 import okhttp3.MultipartBody
 import retrofit2.Call

@@ -1,4 +1,4 @@
-package ru.mokolomyagi.photofactcheck
+package ru.mokolomyagi.photofactcheck.util
 
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
@@ -6,6 +6,7 @@ import okhttp3.RequestBody.Companion.asRequestBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import ru.mokolomyagi.photofactcheck.data.model.RetrofitClient
 import java.io.File
 
 fun uploadImage(file: File) {

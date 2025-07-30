@@ -1,34 +1,15 @@
 package ru.mokolomyagi.photofactcheck
 
-import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import ru.mokolomyagi.photofactcheck.ui.AppNavigation
 
-class MainActivity : AppCompatActivity() {
-
-    private lateinit var cameraButton: Button
-    private lateinit var settingsButton: Button
-
+class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        cameraButton = findViewById<Button>(R.id.button_camera)
-        settingsButton = findViewById<Button>(R.id.button_other)
-
-        cameraButton.setOnClickListener {
-            val intent = Intent(this, CameraActivity::class.java)
-            startActivity(intent)
+        setContent {
+            AppNavigation()
         }
-
-        settingsButton.setOnClickListener {
-            val intent = Intent(this, SettingsActivity::class.java)
-            startActivity(intent)
-        }
-
     }
 }
