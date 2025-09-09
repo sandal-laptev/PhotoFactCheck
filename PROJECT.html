@@ -1,0 +1,805 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<article
+        class="text-token-text-primary w-full focus:outline-none scroll-mt-[calc(var(--header-height)+min(200px,max(70px,20svh)))]"
+        tabindex="-1" dir="auto" data-turn-id="request-WEB:3d6d22ab-6ba9-4cfb-b325-9bbafec74cb4-1"
+        data-testid="conversation-turn-4" data-scroll-anchor="false" data-turn="assistant" style="">
+    <h6 class="sr-only">ChatGPT сказал:</h6>
+    <div class="text-base my-auto mx-auto [--thread-content-margin:--spacing(4)] thread-sm:[--thread-content-margin:--spacing(6)] thread-lg:[--thread-content-margin:--spacing(16)] px-(--thread-content-margin)">
+        <div class="[--thread-content-max-width:40rem] thread-sm:[--thread-content-max-width:40rem] thread-lg:[--thread-content-max-width:48rem] mx-auto max-w-(--thread-content-max-width) flex-1 group/turn-messages focus-visible:outline-hidden relative flex w-full min-w-0 flex-col agent-turn"
+             tabindex="-1">
+            <div class="flex max-w-full flex-col grow">
+                <div data-message-author-role="assistant"
+                     data-message-id="9a5f78d8-6516-4ab4-a978-592c24f54b72" dir="auto"
+                     class="min-h-8 text-message relative flex w-full flex-col items-end gap-2 text-start break-words whitespace-normal [.text-message+&amp;]:mt-5"
+                     data-message-model-slug="gpt-5">
+                    <div class="flex w-full flex-col gap-1 empty:hidden first:pt-[3px]">
+                        <div class="markdown prose dark:prose-invert w-full break-words light markdown-new-styling">
+                            <p data-start="0" data-end="197">Отлично, вы уже начинаете формировать
+                                именно <strong data-start="45" data-end="62">бизнес-логику</strong>
+                                приложения, а не только технический каркас. Попробую предложить
+                                архитектуру и сущности, чтобы потом легче было «натянуть» UI и сеть.
+                            </p>
+                            <hr data-start="199" data-end="202">
+                            <h2 data-start="204" data-end="220">Основные роли</h2>
+                            <ul data-start="221" data-end="479">
+                                <li data-start="221" data-end="356">
+                                    <p data-start="223" data-end="356"><strong data-start="223"
+                                                                               data-end="251">Администратор
+                                        / оператор</strong> (сервер)<br data-start="260"
+                                                                        data-end="263">
+                                        Создаёт задания, назначает работников, контролирует ход
+                                        выполнения, принимает результаты.</p>
+                                </li>
+                                <li data-start="357" data-end="479">
+                                    <p data-start="359" data-end="479"><strong data-start="359"
+                                                                               data-end="371">Работник</strong>
+                                        (мобильное приложение)<br data-start="394" data-end="397">
+                                        Получает список заданий, выполняет их, ведёт фотофиксацию и
+                                        отмечает прогресс.</p>
+                                </li>
+                            </ul>
+                            <hr data-start="481" data-end="484">
+                            <h2 data-start="486" data-end="534">Основные сущности (модель предметной
+                                области)</h2>
+                            <ol data-start="536" data-end="1300">
+                                <li data-start="536" data-end="890">
+                                    <p data-start="539" data-end="563"><strong data-start="539"
+                                                                               data-end="561">WorkOrder
+                                        (Работа)</strong></p>
+                                    <ul data-start="567" data-end="890">
+                                        <li data-start="567" data-end="575">
+                                            <p data-start="569" data-end="575"><code
+                                                    data-start="569" data-end="573">id</code></p>
+                                        </li>
+                                        <li data-start="579" data-end="609">
+                                            <p data-start="581" data-end="609"><code
+                                                    data-start="581" data-end="588">title</code> —
+                                                краткое название</p>
+                                        </li>
+                                        <li data-start="613" data-end="641">
+                                            <p data-start="615" data-end="641"><code
+                                                    data-start="615"
+                                                    data-end="628">description</code> — описание</p>
+                                        </li>
+                                        <li data-start="645" data-end="713">
+                                            <p data-start="647" data-end="713"><code
+                                                    data-start="647" data-end="657">location</code>
+                                                — координаты объекта (геопозиция
+                                                территории/элемента)</p>
+                                        </li>
+                                        <li data-start="717" data-end="775">
+                                            <p data-start="719" data-end="775"><code
+                                                    data-start="719" data-end="730">materials</code>
+                                                — список расходных материалов (если нужны)</p>
+                                        </li>
+                                        <li data-start="779" data-end="821">
+                                            <p data-start="781" data-end="821"><code
+                                                    data-start="781"
+                                                    data-end="793">assignedTo</code> — идентификатор
+                                                работника</p>
+                                        </li>
+                                        <li data-start="825" data-end="890">
+                                            <p data-start="827" data-end="890"><code
+                                                    data-start="827" data-end="835">status</code> —
+                                                состояние (<code data-start="849"
+                                                                 data-end="854">NEW</code>, <code
+                                                        data-start="856"
+                                                        data-end="869">IN_PROGRESS</code>, <code
+                                                        data-start="871" data-end="877">DONE</code>,
+                                                <code data-start="879" data-end="887">CLOSED</code>)
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li data-start="892" data-end="1185">
+                                    <p data-start="895" data-end="927"><strong data-start="895"
+                                                                               data-end="925">PhotoRecord
+                                        (Фотофиксация)</strong></p>
+                                    <ul data-start="931" data-end="1185">
+                                        <li data-start="931" data-end="939">
+                                            <p data-start="933" data-end="939"><code
+                                                    data-start="933" data-end="937">id</code></p>
+                                        </li>
+                                        <li data-start="943" data-end="960">
+                                            <p data-start="945" data-end="960"><code
+                                                    data-start="945"
+                                                    data-end="958">workOrderId</code></p>
+                                        </li>
+                                        <li data-start="964" data-end="1090">
+                                            <p data-start="966" data-end="1090"><code
+                                                    data-start="966" data-end="972">type</code> —
+                                                произвольный тип снимка, не жёстко «до/после», а
+                                                динамически (<code data-start="1037"
+                                                                   data-end="1045">BEFORE</code>,
+                                                <code data-start="1047" data-end="1054">AFTER</code>,
+                                                <code data-start="1056"
+                                                      data-end="1064">DEFECT</code>, <code
+                                                        data-start="1066" data-end="1079">IN_PROGRESS</code>
+                                                и т. п.)</p>
+                                        </li>
+                                        <li data-start="1094" data-end="1109">
+                                            <p data-start="1096" data-end="1109"><code
+                                                    data-start="1096"
+                                                    data-end="1107">timestamp</code></p>
+                                        </li>
+                                        <li data-start="1113" data-end="1152">
+                                            <p data-start="1115" data-end="1152"><code
+                                                    data-start="1115" data-end="1120">geo</code> —
+                                                координаты на момент съёмки</p>
+                                        </li>
+                                        <li data-start="1156" data-end="1185">
+                                            <p data-start="1158" data-end="1185"><code
+                                                    data-start="1158" data-end="1167">fileUri</code>
+                                                или <code data-start="1172" data-end="1183">remoteUrl</code>
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li data-start="1187" data-end="1300">
+                                    <p data-start="1190" data-end="1229"><strong data-start="1190"
+                                                                                 data-end="1227">MaterialUsage
+                                        (Расход материалов)</strong></p>
+                                    <ul data-start="1233" data-end="1300">
+                                        <li data-start="1233" data-end="1241">
+                                            <p data-start="1235" data-end="1241"><code
+                                                    data-start="1235" data-end="1239">id</code></p>
+                                        </li>
+                                        <li data-start="1245" data-end="1262">
+                                            <p data-start="1247" data-end="1262"><code
+                                                    data-start="1247"
+                                                    data-end="1260">workOrderId</code></p>
+                                        </li>
+                                        <li data-start="1266" data-end="1282">
+                                            <p data-start="1268" data-end="1282"><code
+                                                    data-start="1268"
+                                                    data-end="1280">materialId</code></p>
+                                        </li>
+                                        <li data-start="1286" data-end="1300">
+                                            <p data-start="1288" data-end="1300"><code
+                                                    data-start="1288"
+                                                    data-end="1298">quantity</code></p>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ol>
+                            <hr data-start="1302" data-end="1305">
+                            <h2 data-start="1307" data-end="1361">Логика работы мобильного
+                                приложения (для работника)</h2>
+                            <ol data-start="1363" data-end="1939">
+                                <li data-start="1363" data-end="1434">
+                                    <p data-start="1366" data-end="1434">Работник авторизуется и
+                                        получает список назначенных <strong data-start="1418"
+                                                                            data-end="1431">WorkOrder</strong>.
+                                    </p>
+                                </li>
+                                <li data-start="1435" data-end="1544">
+                                    <p data-start="1438" data-end="1475">Выбирает конкретную работу
+                                        → видит:</p>
+                                    <ul data-start="1479" data-end="1544">
+                                        <li data-start="1479" data-end="1492">
+                                            <p data-start="1481" data-end="1492">описание,</p>
+                                        </li>
+                                        <li data-start="1496" data-end="1518">
+                                            <p data-start="1498" data-end="1518">
+                                                координаты/объект,</p>
+                                        </li>
+                                        <li data-start="1522" data-end="1544">
+                                            <p data-start="1524" data-end="1544">список
+                                                материалов.</p>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li data-start="1545" data-end="1811">
+                                    <p data-start="1548" data-end="1577">Может сделать
+                                        фотофиксацию:</p>
+                                    <ul data-start="1581" data-end="1811">
+                                        <li data-start="1581" data-end="1618">
+                                            <p data-start="1583" data-end="1618">«до начала работ»
+                                                (тип <code data-start="1606"
+                                                           data-end="1614">BEFORE</code>),</p>
+                                        </li>
+                                        <li data-start="1622" data-end="1660">
+                                            <p data-start="1624" data-end="1660">«обнаружен дефект»
+                                                (тип <code data-start="1648"
+                                                           data-end="1656">DEFECT</code>),</p>
+                                        </li>
+                                        <li data-start="1664" data-end="1704">
+                                            <p data-start="1666" data-end="1704">«по ходу работ»
+                                                (тип <code data-start="1687" data-end="1700">IN_PROGRESS</code>),
+                                            </p>
+                                        </li>
+                                        <li data-start="1708" data-end="1811">
+                                            <p data-start="1710" data-end="1811">«после работ» (тип
+                                                <code data-start="1729" data-end="1736">AFTER</code>).<br
+                                                        data-start="1738" data-end="1741">
+                                                👉 Тип фото выбирается из списка, а не жёстко
+                                                фиксируется шагами.</p>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li data-start="1812" data-end="1851">
+                                    <p data-start="1815" data-end="1851">Отмечает использование
+                                        материалов.</p>
+                                </li>
+                                <li data-start="1852" data-end="1905">
+                                    <p data-start="1855" data-end="1905">Отмечает статус работы
+                                        (<code data-start="1879" data-end="1892">IN_PROGRESS</code>
+                                        → <code data-start="1895" data-end="1901">DONE</code>).</p>
+                                </li>
+                                <li data-start="1906" data-end="1939">
+                                    <p data-start="1909" data-end="1939">Отправляет данные на
+                                        сервер.</p>
+                                </li>
+                            </ol>
+                            <hr data-start="1941" data-end="1944">
+                            <h2 data-start="1946" data-end="1999">Важный момент: «До» и «После» без
+                                жёсткой привязки</h2>
+                            <p data-start="2000" data-end="2198">То, что вы хотите: <strong
+                                    data-start="2019" data-end="2048">гибкая схема
+                                фотофиксации</strong>.<br data-start="2049" data-end="2052">
+                                Решается так: у каждой фотографии есть <strong data-start="2091"
+                                                                               data-end="2109">атрибут
+                                    <code data-start="2101" data-end="2107">type</code></strong>,
+                                который задаётся пользователем. Тогда работник может по ходу
+                                выполнения сам выбирать:</p>
+                            <ul data-start="2199" data-end="2381">
+                                <li data-start="2199" data-end="2254">
+                                    <p data-start="2201" data-end="2254">если «снял территорию до
+                                        начала» → ставит <code data-start="2243" data-end="2251">BEFORE</code>;
+                                    </p>
+                                </li>
+                                <li data-start="2255" data-end="2297">
+                                    <p data-start="2257" data-end="2297">если нашёл проблему →
+                                        ставит <code data-start="2286" data-end="2294">DEFECT</code>;
+                                    </p>
+                                </li>
+                                <li data-start="2298" data-end="2350">
+                                    <p data-start="2300" data-end="2350">если сделал промежуточный
+                                        отчёт → <code data-start="2334"
+                                                      data-end="2347">IN_PROGRESS</code>;</p>
+                                </li>
+                                <li data-start="2351" data-end="2381">
+                                    <p data-start="2353" data-end="2381">если всё готово → <code
+                                            data-start="2371" data-end="2378">AFTER</code>.</p>
+                                </li>
+                            </ul>
+                            <p data-start="2383" data-end="2460">Сервер, администратор или аналитика
+                                потом могут группировать фото по типам.</p>
+                            <hr data-start="2462" data-end="2465">
+                            <h2 data-start="2467" data-end="2505">Возможная структура API
+                                (упрощённо)</h2>
+                            <ul data-start="2507" data-end="2807">
+                                <li data-start="2507" data-end="2556">
+                                    <p data-start="2509" data-end="2556"><code data-start="2509"
+                                                                               data-end="2526">GET
+                                        /workorders</code> → список назначенных работ.</p>
+                                </li>
+                                <li data-start="2557" data-end="2600">
+                                    <p data-start="2559" data-end="2600"><code data-start="2559"
+                                                                               data-end="2581">GET
+                                        /workorders/{id}</code> → детали работы.</p>
+                                </li>
+                                <li data-start="2601" data-end="2671">
+                                    <p data-start="2603" data-end="2671"><code data-start="2603"
+                                                                               data-end="2633">POST
+                                        /workorders/{id}/photos</code> → загрузка фото (с <code
+                                            data-start="2653" data-end="2659">type</code> и <code
+                                            data-start="2662" data-end="2667">geo</code>).</p>
+                                </li>
+                                <li data-start="2672" data-end="2732">
+                                    <p data-start="2674" data-end="2732"><code data-start="2674"
+                                                                               data-end="2707">POST
+                                        /workorders/{id}/materials</code> → списание материалов.</p>
+                                </li>
+                                <li data-start="2733" data-end="2807">
+                                    <p data-start="2735" data-end="2807"><code data-start="2735"
+                                                                               data-end="2759">PATCH
+                                        /workorders/{id}</code> → обновление статуса (<code
+                                            data-start="2782" data-end="2795">IN_PROGRESS</code>,
+                                        <code data-start="2797" data-end="2803">DONE</code>).</p>
+                                </li>
+                            </ul>
+                            <hr data-start="2809" data-end="2812">
+                            <h2 data-start="2814" data-end="2839">Архитектура приложения</h2>
+                            <p data-start="2841" data-end="2899">На клиенте (мобильное приложение)
+                                разумно выделить слои:</p>
+                            <ol data-start="2901" data-end="3223">
+                                <li data-start="2901" data-end="3011">
+                                    <p data-start="2904" data-end="2920"><strong data-start="2904"
+                                                                                 data-end="2918">Data
+                                        layer</strong></p>
+                                    <ul data-start="2924" data-end="3011">
+                                        <li data-start="2924" data-end="2953">
+                                            <p data-start="2926" data-end="2953">Retrofit API для
+                                                сервера.</p>
+                                        </li>
+                                        <li data-start="2957" data-end="3011">
+                                            <p data-start="2959" data-end="3011">DataStore/Room для
+                                                кэша (работы, фото, материалы).</p>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li data-start="3012" data-end="3107">
+                                    <p data-start="3015" data-end="3033"><strong data-start="3015"
+                                                                                 data-end="3031">Domain
+                                        layer</strong></p>
+                                    <ul data-start="3037" data-end="3107">
+                                        <li data-start="3037" data-end="3107">
+                                            <p data-start="3039" data-end="3107">UseCase (например:
+                                                <code data-start="3058" data-end="3081">LoadWorkOrdersUseCase</code>,
+                                                <code data-start="3083" data-end="3103">UploadPhotoUseCase</code>).
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li data-start="3108" data-end="3223">
+                                    <p data-start="3111" data-end="3125"><strong data-start="3111"
+                                                                                 data-end="3123">UI
+                                        layer</strong></p>
+                                    <ul data-start="3129" data-end="3223">
+                                        <li data-start="3129" data-end="3185">
+                                            <p data-start="3131" data-end="3185">Экраны: список
+                                                работ, детали работы, камера, отчёты.</p>
+                                        </li>
+                                        <li data-start="3189" data-end="3223">
+                                            <p data-start="3191" data-end="3223">ViewModel для
+                                                каждой сущности.</p>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ol>
+                            <hr data-start="3225" data-end="3228">
+                            <p data-start="3230" data-end="3450" data-is-last-node=""
+                               data-is-only-node="">❓Вопрос к вам: хотите, чтобы я расписал <strong
+                                    data-start="3270" data-end="3299">пример flow для
+                                работника</strong> в приложении (экраны и действия) или лучше прямо
+                                <strong data-start="3349" data-end="3379">Kotlin-модели (data
+                                    class)</strong> для <code data-start="3384" data-end="3395">WorkOrder</code>,
+                                <code data-start="3397" data-end="3410">PhotoRecord</code> и <code
+                                        data-start="3413" data-end="3428">MaterialUsage</code> с
+                                заделом на будущее?</p></div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex min-h-[46px] justify-start">
+                <div class="touch:-me-2 touch:-ms-3.5 -ms-2.5 -me-1 flex flex-wrap items-center gap-y-4 p-1 select-none touch:w-[calc(100%+--spacing(3.5))] -mt-1 w-[calc(100%+--spacing(2.5))] duration-[1.5s] focus-within:transition-none hover:transition-none pointer-events-none [mask-image:linear-gradient(to_right,black_33%,transparent_66%)] [mask-size:300%_100%] [mask-position:100%_0%] motion-safe:transition-[mask-position] group-hover/turn-messages:pointer-events-auto group-hover/turn-messages:[mask-position:0_0] group-focus-within/turn-messages:pointer-events-auto group-focus-within/turn-messages:[mask-position:0_0] has-data-[state=open]:pointer-events-auto has-data-[state=open]:[mask-position:0_0]"
+                     style="mask-position: 0% 0%;">
+                    <button class="text-token-text-secondary hover:bg-token-bg-secondary rounded-lg"
+                            aria-label="Копировать" aria-pressed="false"
+                            data-testid="copy-turn-action-button" data-state="closed"><span
+                            class="flex items-center justify-center touch:w-10 h-8 w-8"><svg
+                            width="20" height="20" viewBox="0 0 20 20" fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg" class="icon"><path
+                            d="M12.668 10.667C12.668 9.95614 12.668 9.46258 12.6367 9.0791C12.6137 8.79732 12.5758 8.60761 12.5244 8.46387L12.4688 8.33399C12.3148 8.03193 12.0803 7.77885 11.793 7.60254L11.666 7.53125C11.508 7.45087 11.2963 7.39395 10.9209 7.36328C10.5374 7.33197 10.0439 7.33203 9.33301 7.33203H6.5C5.78896 7.33203 5.29563 7.33195 4.91211 7.36328C4.63016 7.38632 4.44065 7.42413 4.29688 7.47559L4.16699 7.53125C3.86488 7.68518 3.61186 7.9196 3.43555 8.20703L3.36524 8.33399C3.28478 8.49198 3.22795 8.70352 3.19727 9.0791C3.16595 9.46259 3.16504 9.95611 3.16504 10.667V13.5C3.16504 14.211 3.16593 14.7044 3.19727 15.0879C3.22797 15.4636 3.28473 15.675 3.36524 15.833L3.43555 15.959C3.61186 16.2466 3.86474 16.4807 4.16699 16.6348L4.29688 16.6914C4.44063 16.7428 4.63025 16.7797 4.91211 16.8027C5.29563 16.8341 5.78896 16.835 6.5 16.835H9.33301C10.0439 16.835 10.5374 16.8341 10.9209 16.8027C11.2965 16.772 11.508 16.7152 11.666 16.6348L11.793 16.5645C12.0804 16.3881 12.3148 16.1351 12.4688 15.833L12.5244 15.7031C12.5759 15.5594 12.6137 15.3698 12.6367 15.0879C12.6681 14.7044 12.668 14.211 12.668 13.5V10.667ZM13.998 12.665C14.4528 12.6634 14.8011 12.6602 15.0879 12.6367C15.4635 12.606 15.675 12.5492 15.833 12.4688L15.959 12.3975C16.2466 12.2211 16.4808 11.9682 16.6348 11.666L16.6914 11.5361C16.7428 11.3924 16.7797 11.2026 16.8027 10.9209C16.8341 10.5374 16.835 10.0439 16.835 9.33301V6.5C16.835 5.78896 16.8341 5.29563 16.8027 4.91211C16.7797 4.63025 16.7428 4.44063 16.6914 4.29688L16.6348 4.16699C16.4807 3.86474 16.2466 3.61186 15.959 3.43555L15.833 3.36524C15.675 3.28473 15.4636 3.22797 15.0879 3.19727C14.7044 3.16593 14.211 3.16504 13.5 3.16504H10.667C9.9561 3.16504 9.46259 3.16595 9.0791 3.19727C8.79739 3.22028 8.6076 3.2572 8.46387 3.30859L8.33399 3.36524C8.03176 3.51923 7.77886 3.75343 7.60254 4.04102L7.53125 4.16699C7.4508 4.32498 7.39397 4.53655 7.36328 4.91211C7.33985 5.19893 7.33562 5.54719 7.33399 6.00195H9.33301C10.022 6.00195 10.5791 6.00131 11.0293 6.03809C11.4873 6.07551 11.8937 6.15471 12.2705 6.34668L12.4883 6.46875C12.984 6.7728 13.3878 7.20854 13.6533 7.72949L13.7197 7.87207C13.8642 8.20859 13.9292 8.56974 13.9619 8.9707C13.9987 9.42092 13.998 9.97799 13.998 10.667V12.665ZM18.165 9.33301C18.165 10.022 18.1657 10.5791 18.1289 11.0293C18.0961 11.4302 18.0311 11.7914 17.8867 12.1279L17.8203 12.2705C17.5549 12.7914 17.1509 13.2272 16.6553 13.5313L16.4365 13.6533C16.0599 13.8452 15.6541 13.9245 15.1963 13.9619C14.8593 13.9895 14.4624 13.9935 13.9951 13.9951C13.9935 14.4624 13.9895 14.8593 13.9619 15.1963C13.9292 15.597 13.864 15.9576 13.7197 16.2939L13.6533 16.4365C13.3878 16.9576 12.9841 17.3941 12.4883 17.6982L12.2705 17.8203C11.8937 18.0123 11.4873 18.0915 11.0293 18.1289C10.5791 18.1657 10.022 18.165 9.33301 18.165H6.5C5.81091 18.165 5.25395 18.1657 4.80371 18.1289C4.40306 18.0962 4.04235 18.031 3.70606 17.8867L3.56348 17.8203C3.04244 17.5548 2.60585 17.151 2.30176 16.6553L2.17969 16.4365C1.98788 16.0599 1.90851 15.6541 1.87109 15.1963C1.83431 14.746 1.83496 14.1891 1.83496 13.5V10.667C1.83496 9.978 1.83432 9.42091 1.87109 8.9707C1.90851 8.5127 1.98772 8.10625 2.17969 7.72949L2.30176 7.51172C2.60586 7.0159 3.04236 6.6122 3.56348 6.34668L3.70606 6.28027C4.04237 6.136 4.40303 6.07083 4.80371 6.03809C5.14051 6.01057 5.53708 6.00551 6.00391 6.00391C6.00551 5.53708 6.01057 5.14051 6.03809 4.80371C6.0755 4.34588 6.15483 3.94012 6.34668 3.56348L6.46875 3.34473C6.77282 2.84912 7.20856 2.44514 7.72949 2.17969L7.87207 2.11328C8.20855 1.96886 8.56979 1.90385 8.9707 1.87109C9.42091 1.83432 9.978 1.83496 10.667 1.83496H13.5C14.1891 1.83496 14.746 1.83431 15.1963 1.87109C15.6541 1.90851 16.0599 1.98788 16.4365 2.17969L16.6553 2.30176C17.151 2.60585 17.5548 3.04244 17.8203 3.56348L17.8867 3.70606C18.031 4.04235 18.0962 4.40306 18.1289 4.80371C18.1657 5.25395 18.165 5.81091 18.165 6.5V9.33301Z"></path></svg></span>
+                    </button>
+                    <button class="text-token-text-secondary hover:bg-token-bg-secondary rounded-lg"
+                            aria-label="Хороший ответ" aria-pressed="false"
+                            data-testid="good-response-turn-action-button" data-state="closed"><span
+                            class="flex items-center justify-center touch:w-10 h-8 w-8"><svg
+                            width="20" height="20" viewBox="0 0 20 20" fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg" class="icon"><path
+                            d="M10.9153 1.83987L11.2942 1.88772L11.4749 1.91507C13.2633 2.24201 14.4107 4.01717 13.9749 5.78225L13.9261 5.95901L13.3987 7.6719C13.7708 7.67575 14.0961 7.68389 14.3792 7.70608C14.8737 7.74486 15.3109 7.82759 15.7015 8.03323L15.8528 8.11819C16.5966 8.56353 17.1278 9.29625 17.3167 10.1475L17.347 10.3096C17.403 10.69 17.3647 11.0832 17.2835 11.5098C17.2375 11.7517 17.1735 12.0212 17.096 12.3233L16.8255 13.3321L16.4456 14.7276C16.2076 15.6001 16.0438 16.2356 15.7366 16.7305L15.595 16.9346C15.2989 17.318 14.9197 17.628 14.4866 17.8408L14.2982 17.9258C13.6885 18.1774 12.9785 18.1651 11.9446 18.1651H7.33331C6.64422 18.1651 6.08726 18.1657 5.63702 18.1289C5.23638 18.0962 4.87565 18.031 4.53936 17.8867L4.39679 17.8203C3.87576 17.5549 3.43916 17.151 3.13507 16.6553L3.013 16.4366C2.82119 16.0599 2.74182 15.6541 2.7044 15.1963C2.66762 14.7461 2.66827 14.1891 2.66827 13.5V11.667C2.66827 10.9349 2.66214 10.4375 2.77569 10.0137L2.83722 9.81253C3.17599 8.81768 3.99001 8.05084 5.01397 7.77639L5.17706 7.73928C5.56592 7.66435 6.02595 7.66799 6.66632 7.66799C6.9429 7.66799 7.19894 7.52038 7.33624 7.2803L10.2562 2.16995L10.3118 2.08792C10.4544 1.90739 10.6824 1.81092 10.9153 1.83987ZM7.33136 14.167C7.33136 14.9841 7.33714 15.2627 7.39386 15.4746L7.42999 15.5918C7.62644 16.1686 8.09802 16.6134 8.69171 16.7725L8.87042 16.8067C9.07652 16.8323 9.38687 16.835 10.0003 16.835H11.9446C13.099 16.835 13.4838 16.8228 13.7903 16.6963L13.8997 16.6465C14.1508 16.5231 14.3716 16.3444 14.5433 16.1221L14.6155 16.0166C14.7769 15.7552 14.8968 15.3517 15.1624 14.378L15.5433 12.9824L15.8079 11.9922C15.8804 11.7102 15.9368 11.4711 15.9769 11.2608C16.0364 10.948 16.0517 10.7375 16.0394 10.5791L16.0179 10.4356C15.9156 9.97497 15.641 9.57381 15.2542 9.31253L15.0814 9.20999C14.9253 9.12785 14.6982 9.06544 14.2747 9.03225C13.8477 8.99881 13.2923 8.99807 12.5003 8.99807C12.2893 8.99807 12.0905 8.89822 11.9651 8.72854C11.8398 8.55879 11.8025 8.33942 11.8646 8.13772L12.6556 5.56741L12.7054 5.36331C12.8941 4.35953 12.216 3.37956 11.1878 3.2178L8.49054 7.93948C8.23033 8.39484 7.81431 8.72848 7.33136 8.88967V14.167ZM3.99835 13.5C3.99835 14.2111 3.99924 14.7044 4.03058 15.0879C4.06128 15.4636 4.11804 15.675 4.19854 15.833L4.26886 15.959C4.44517 16.2466 4.69805 16.4808 5.0003 16.6348L5.13019 16.6905C5.27397 16.7419 5.46337 16.7797 5.74542 16.8028C5.97772 16.8217 6.25037 16.828 6.58722 16.8311C6.41249 16.585 6.27075 16.3136 6.1712 16.0215L6.10968 15.8194C5.99614 15.3956 6.00128 14.899 6.00128 14.167V9.00296C5.79386 9.0067 5.65011 9.01339 5.53741 9.02737L5.3587 9.06057C4.76502 9.21965 4.29247 9.66448 4.09601 10.2412L4.06085 10.3584C4.00404 10.5705 3.99835 10.8493 3.99835 11.667V13.5Z"></path></svg></span>
+                    </button>
+                    <button class="text-token-text-secondary hover:bg-token-bg-secondary rounded-lg"
+                            aria-label="Плохой ответ" aria-pressed="false"
+                            data-testid="bad-response-turn-action-button" data-state="closed"><span
+                            class="flex items-center justify-center touch:w-10 h-8 w-8"><svg
+                            width="20" height="20" viewBox="0 0 20 20" fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg" class="icon"><path
+                            d="M12.6687 5.83304C12.6687 5.22006 12.6649 4.91019 12.6394 4.70413L12.6062 4.52542C12.4471 3.93179 12.0022 3.45922 11.4255 3.26272L11.3083 3.22757C11.0963 3.17075 10.8175 3.16507 9.99974 3.16507H8.0554C7.04558 3.16507 6.62456 3.17475 6.32982 3.26175L6.2097 3.30374C5.95005 3.41089 5.71908 3.57635 5.53392 3.78616L5.45677 3.87796C5.30475 4.0748 5.20336 4.33135 5.03392 4.91702L4.83763 5.6221L4.45677 7.01761C4.24829 7.78204 4.10326 8.31846 4.02318 8.73929C3.94374 9.15672 3.94298 9.39229 3.98119 9.56448L4.03587 9.75784C4.18618 10.1996 4.50043 10.5702 4.91771 10.7901L5.05052 10.8477C5.20009 10.9014 5.40751 10.9429 5.72533 10.9678C6.15231 11.0012 6.70771 11.002 7.49974 11.002C7.71076 11.002 7.90952 11.1018 8.0349 11.2715C8.14465 11.4201 8.18683 11.6067 8.15404 11.7862L8.13548 11.8623L7.34447 14.4326C7.01523 15.5033 7.71404 16.6081 8.81126 16.7813L11.5095 12.0606L11.5827 11.9405C11.8445 11.5461 12.2289 11.2561 12.6687 11.1094V5.83304ZM17.3318 8.33304C17.3318 8.97366 17.3364 9.43432 17.2615 9.82327L17.2234 9.98538C16.949 11.0094 16.1821 11.8233 15.1872 12.1621L14.9861 12.2237C14.5624 12.3372 14.0656 12.3321 13.3337 12.3321C13.0915 12.3321 12.8651 12.4453 12.7204 12.6348L12.6638 12.7198L9.74388 17.8301C9.61066 18.0631 9.35005 18.1935 9.08372 18.1602L8.70579 18.1123C6.75379 17.8682 5.49542 15.9213 6.07396 14.041L6.60033 12.3272C6.22861 12.3233 5.90377 12.3161 5.62083 12.294C5.18804 12.26 4.79914 12.1931 4.44701 12.0391L4.29857 11.9668C3.52688 11.5605 2.95919 10.8555 2.72533 10.0205L2.68333 9.85257C2.58769 9.42154 2.62379 8.97768 2.71654 8.49026C2.80865 8.00634 2.97082 7.41139 3.17357 6.668L3.55443 5.27249L3.74583 4.58011C3.9286 3.94171 4.10186 3.45682 4.40404 3.06546L4.53685 2.9053C4.85609 2.54372 5.25433 2.25896 5.70189 2.07425L5.93626 1.99222C6.49455 1.82612 7.15095 1.83499 8.0554 1.83499H12.6667C13.3558 1.83499 13.9128 1.83434 14.363 1.87112C14.8208 1.90854 15.2266 1.98789 15.6033 2.17972L15.821 2.30179C16.317 2.6059 16.7215 3.04226 16.987 3.56351L17.0535 3.70608C17.1977 4.04236 17.2629 4.40311 17.2956 4.80374C17.3324 5.25398 17.3318 5.81094 17.3318 6.50003V8.33304ZM13.9978 10.9961C14.3321 10.9901 14.5013 10.977 14.6413 10.9395L14.7585 10.9033C15.3353 10.7069 15.7801 10.2353 15.9392 9.64163L15.9724 9.46292C15.998 9.25682 16.0017 8.94657 16.0017 8.33304V6.50003C16.0017 5.78899 16.0008 5.29566 15.9695 4.91214C15.9464 4.6301 15.9086 4.44069 15.8572 4.2969L15.8015 4.16702C15.6475 3.86478 15.4133 3.6119 15.1257 3.43558L14.9997 3.36526C14.8418 3.28477 14.6302 3.228 14.2546 3.19729C14.0221 3.1783 13.7491 3.17109 13.4118 3.168C13.6267 3.47028 13.7914 3.81126 13.8904 4.18069L13.9275 4.34378C13.981 4.62163 13.9947 4.93582 13.9978 5.3262V10.9961Z"></path></svg></span>
+                    </button>
+                    <button class="text-token-text-secondary hover:bg-token-bg-secondary rounded-lg"
+                            aria-label="Поделиться" aria-pressed="false" data-state="closed"><span
+                            class="flex items-center justify-center touch:w-10 h-8 w-8"><svg
+                            width="20" height="20" viewBox="0 0 20 20" fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg" class="icon"><path
+                            d="M2.66821 12.6663V12.5003C2.66821 12.1331 2.96598 11.8353 3.33325 11.8353C3.70052 11.8353 3.99829 12.1331 3.99829 12.5003V12.6663C3.99829 13.3772 3.9992 13.8707 4.03052 14.2542C4.0612 14.6298 4.11803 14.8413 4.19849 14.9993L4.2688 15.1263C4.44511 15.4137 4.69813 15.6481 5.00024 15.8021L5.13013 15.8577C5.2739 15.9092 5.46341 15.947 5.74536 15.97C6.12888 16.0014 6.62221 16.0013 7.33325 16.0013H12.6663C13.3771 16.0013 13.8707 16.0014 14.2542 15.97C14.6295 15.9394 14.8413 15.8825 14.9993 15.8021L15.1262 15.7308C15.4136 15.5545 15.6481 15.3014 15.802 14.9993L15.8577 14.8695C15.9091 14.7257 15.9469 14.536 15.97 14.2542C16.0013 13.8707 16.0012 13.3772 16.0012 12.6663V12.5003C16.0012 12.1332 16.2991 11.8355 16.6663 11.8353C17.0335 11.8353 17.3313 12.1331 17.3313 12.5003V12.6663C17.3313 13.3553 17.3319 13.9124 17.2952 14.3626C17.2624 14.7636 17.1974 15.1247 17.053 15.4613L16.9866 15.6038C16.7211 16.1248 16.3172 16.5605 15.8215 16.8646L15.6038 16.9866C15.227 17.1786 14.8206 17.2578 14.3625 17.2952C13.9123 17.332 13.3553 17.3314 12.6663 17.3314H7.33325C6.64416 17.3314 6.0872 17.332 5.63696 17.2952C5.23642 17.2625 4.87552 17.1982 4.53931 17.054L4.39673 16.9866C3.87561 16.7211 3.43911 16.3174 3.13501 15.8216L3.01294 15.6038C2.82097 15.2271 2.74177 14.8206 2.70435 14.3626C2.66758 13.9124 2.66821 13.3553 2.66821 12.6663ZM9.33521 12.5003V4.9388L7.13696 7.13704C6.87732 7.39668 6.45625 7.39657 6.19653 7.13704C5.93684 6.87734 5.93684 6.45631 6.19653 6.19661L9.52954 2.86263L9.6311 2.77962C9.73949 2.70742 9.86809 2.66829 10.0002 2.66829C10.1763 2.66838 10.3454 2.73819 10.47 2.86263L13.804 6.19661C14.0633 6.45628 14.0634 6.87744 13.804 7.13704C13.5443 7.39674 13.1222 7.39674 12.8625 7.13704L10.6653 4.93977V12.5003C10.6651 12.8673 10.3673 13.1652 10.0002 13.1654C9.63308 13.1654 9.33538 12.8674 9.33521 12.5003Z"></path></svg></span>
+                    </button>
+                    <span class="" data-state="closed"><button type="button" id="radix-«rq3»"
+                                                               aria-haspopup="menu"
+                                                               aria-expanded="false"
+                                                               data-state="closed"
+                                                               class="cursor-pointer text-token-text-secondary hover:bg-token-bg-secondary touch:px-2.5 h-[30px] rounded-md px-1.5"
+                                                               aria-label="Сменить модель"><div
+                            class="flex items-center"><svg width="20" height="20"
+                                                           viewBox="0 0 20 20" fill="currentColor"
+                                                           xmlns="http://www.w3.org/2000/svg"
+                                                           class="icon"><path
+                            d="M3.502 16.6663V13.3333C3.502 12.9661 3.79977 12.6683 4.16704 12.6683H7.50004L7.63383 12.682C7.93691 12.7439 8.16508 13.0119 8.16508 13.3333C8.16508 13.6547 7.93691 13.9227 7.63383 13.9847L7.50004 13.9984H5.47465C6.58682 15.2249 8.21842 16.0013 10 16.0013C13.06 16.0012 15.5859 13.711 15.9551 10.7513L15.9854 10.6195C16.0845 10.3266 16.3785 10.1334 16.6973 10.1732C17.0617 10.2186 17.3198 10.551 17.2745 10.9154L17.2247 11.2523C16.6301 14.7051 13.6224 17.3313 10 17.3314C8.01103 17.3314 6.17188 16.5383 4.83208 15.2474V16.6663C4.83208 17.0335 4.53411 17.3311 4.16704 17.3314C3.79977 17.3314 3.502 17.0336 3.502 16.6663ZM4.04497 9.24935C3.99936 9.61353 3.66701 9.87178 3.30278 9.8265C2.93833 9.78105 2.67921 9.44876 2.72465 9.08431L4.04497 9.24935ZM10 2.66829C11.9939 2.66833 13.8372 3.46551 15.1778 4.76204V3.33333C15.1778 2.96616 15.4757 2.66844 15.8428 2.66829C16.2101 2.66829 16.5079 2.96606 16.5079 3.33333V6.66634C16.5079 7.03361 16.2101 7.33138 15.8428 7.33138H12.5098C12.1425 7.33138 11.8448 7.03361 11.8448 6.66634C11.8449 6.29922 12.1426 6.0013 12.5098 6.0013H14.5254C13.4133 4.77488 11.7816 3.99841 10 3.99837C6.93998 3.99837 4.41406 6.28947 4.04497 9.24935L3.38481 9.16634L2.72465 9.08431C3.17574 5.46702 6.26076 2.66829 10 2.66829Z"></path></svg></div></button></span>
+                    <button class="text-token-text-secondary hover:bg-token-bg-secondary touch:w-10 flex h-8 w-8 items-center justify-center rounded-lg"
+                            aria-label="Больше действий" type="button" id="radix-«rpf»"
+                            aria-haspopup="menu" aria-expanded="false" data-state="closed">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"
+                             xmlns="http://www.w3.org/2000/svg" class="icon">
+                            <path d="M15.498 8.50159C16.3254 8.50159 16.9959 9.17228 16.9961 9.99963C16.9961 10.8271 16.3256 11.4987 15.498 11.4987C14.6705 11.4987 14 10.8271 14 9.99963C14.0002 9.17228 14.6706 8.50159 15.498 8.50159Z"></path>
+                            <path d="M4.49805 8.50159C5.32544 8.50159 5.99689 9.17228 5.99707 9.99963C5.99707 10.8271 5.32555 11.4987 4.49805 11.4987C3.67069 11.4985 3 10.827 3 9.99963C3.00018 9.17239 3.6708 8.50176 4.49805 8.50159Z"></path>
+                            <path d="M10.0003 8.50159C10.8276 8.50176 11.4982 9.17239 11.4984 9.99963C11.4984 10.827 10.8277 11.4985 10.0003 11.4987C9.17283 11.4987 8.50131 10.8271 8.50131 9.99963C8.50149 9.17228 9.17294 8.50159 10.0003 8.50159Z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
+<article
+        class="text-token-text-primary w-full focus:outline-none scroll-mt-[calc(var(--header-height)+min(200px,max(70px,20svh)))]"
+        tabindex="-1" dir="auto" data-turn-id="request-WEB:3d6d22ab-6ba9-4cfb-b325-9bbafec74cb4-2"
+        data-testid="conversation-turn-6" data-scroll-anchor="true" data-turn="assistant"
+        style="min-height: calc(-248px + 100dvh);"><h6 class="sr-only">ChatGPT сказал:</h6>
+    <div class="text-base my-auto mx-auto pb-10 [--thread-content-margin:--spacing(4)] thread-sm:[--thread-content-margin:--spacing(6)] thread-lg:[--thread-content-margin:--spacing(16)] px-(--thread-content-margin)">
+        <div class="[--thread-content-max-width:40rem] thread-sm:[--thread-content-max-width:40rem] thread-lg:[--thread-content-max-width:48rem] mx-auto max-w-(--thread-content-max-width) flex-1 group/turn-messages focus-visible:outline-hidden relative flex w-full min-w-0 flex-col agent-turn"
+             tabindex="-1">
+            <div class="flex max-w-full flex-col grow">
+                <div data-message-author-role="assistant"
+                     data-message-id="cdc047b5-2793-4a0c-befd-403a1f41cd1f" dir="auto"
+                     class="min-h-8 text-message relative flex w-full flex-col items-end gap-2 text-start break-words whitespace-normal [.text-message+&amp;]:mt-5"
+                     data-message-model-slug="gpt-5">
+                    <div class="flex w-full flex-col gap-1 empty:hidden first:pt-[3px]">
+                        <div class="markdown prose dark:prose-invert w-full break-words light markdown-new-styling">
+                            <p data-start="0" data-end="220">Хорошо, давайте разложим <strong
+                                    data-start="25" data-end="60">flow для работника в
+                                приложении</strong> — по шагам, с экранами и ключевыми действиями.
+                                Это поможет вам видеть общую картину бизнес-логики, а потом уже
+                                можно будет переходить к моделям и реализации.</p>
+                            <hr data-start="222" data-end="225">
+                            <h1 data-start="227" data-end="246">🔄 Flow работника</h1>
+                            <h2 data-start="248" data-end="272">1. Авторизация / вход</h2>
+                            <ul data-start="273" data-end="472">
+                                <li data-start="273" data-end="307">
+                                    <p data-start="275" data-end="307">Работник запускает
+                                        приложение.</p>
+                                </li>
+                                <li data-start="308" data-end="388">
+                                    <p data-start="310" data-end="388">Вводит логин/пароль (или
+                                        авторизуется по токену, выданному администратором).</p>
+                                </li>
+                                <li data-start="389" data-end="472">
+                                    <p data-start="391" data-end="472">После входа приложение
+                                        сохраняет токен и получает <strong data-start="441"
+                                                                           data-end="469">список
+                                            назначенных работ</strong>.</p>
+                                </li>
+                            </ul>
+                            <p data-start="474" data-end="522">👉 Экран: <strong data-start="484"
+                                                                                data-end="522">LoginScreen
+                                → WorkOrdersListScreen</strong></p>
+                            <hr data-start="524" data-end="527">
+                            <h2 data-start="529" data-end="559">2. Список назначенных работ</h2>
+                            <ul data-start="560" data-end="773">
+                                <li data-start="560" data-end="693">
+                                    <p data-start="562" data-end="606">Отображается список <strong
+                                            data-start="582" data-end="595">WorkOrder</strong>
+                                        (работ):</p>
+                                    <ul data-start="609" data-end="693">
+                                        <li data-start="609" data-end="622">
+                                            <p data-start="611" data-end="622">название,</p>
+                                        </li>
+                                        <li data-start="625" data-end="648">
+                                            <p data-start="627" data-end="648">адрес /
+                                                координаты,</p>
+                                        </li>
+                                        <li data-start="651" data-end="693">
+                                            <p data-start="653" data-end="693">статус (<code
+                                                    data-start="661" data-end="666">NEW</code>,
+                                                <code data-start="668"
+                                                      data-end="681">IN_PROGRESS</code>, <code
+                                                        data-start="683" data-end="689">DONE</code>).
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li data-start="694" data-end="736">
+                                    <p data-start="696" data-end="736">Фильтрация: «активные»,
+                                        «завершённые».</p>
+                                </li>
+                                <li data-start="737" data-end="773">
+                                    <p data-start="739" data-end="773">Работник выбирает одну из
+                                        работ.</p>
+                                </li>
+                            </ul>
+                            <p data-start="775" data-end="809">👉 Экран: <strong data-start="785"
+                                                                                data-end="809">WorkOrdersListScreen</strong>
+                            </p>
+                            <hr data-start="811" data-end="814">
+                            <h2 data-start="816" data-end="835">3. Детали работы</h2>
+                            <p data-start="836" data-end="853">Работник видит:</p>
+                            <ul data-start="854" data-end="1233">
+                                <li data-start="854" data-end="886">
+                                    <p data-start="856" data-end="886"><strong data-start="856"
+                                                                               data-end="875">Описание
+                                        работы</strong> (текст).</p>
+                                </li>
+                                <li data-start="887" data-end="935">
+                                    <p data-start="889" data-end="935"><strong data-start="889"
+                                                                               data-end="903">Геопозицию</strong>
+                                        объекта (карта + координаты).</p>
+                                </li>
+                                <li data-start="936" data-end="976">
+                                    <p data-start="938" data-end="976"><strong data-start="938"
+                                                                               data-end="951">Материалы</strong>,
+                                        которые нужны/выданы.</p>
+                                </li>
+                                <li data-start="977" data-end="1063">
+                                    <p data-start="979" data-end="1063"><strong data-start="979"
+                                                                                data-end="1003">Историю
+                                        фотофиксации</strong> (список фотографий с метками: ДО,
+                                        ПОСЛЕ, ДЕФЕКТ и т. п.).</p>
+                                </li>
+                                <li data-start="1064" data-end="1233">
+                                    <p data-start="1066" data-end="1088"><strong data-start="1066"
+                                                                                 data-end="1085">Кнопки
+                                        действий</strong>:</p>
+                                    <ul data-start="1091" data-end="1233">
+                                        <li data-start="1091" data-end="1161">
+                                            <p data-start="1093" data-end="1161">«Сделать фото» (с
+                                                выбором типа: ДО, ПОСЛЕ, ДЕФЕКТ, ПРОМЕЖУТОЧНОЕ).</p>
+                                        </li>
+                                        <li data-start="1164" data-end="1189">
+                                            <p data-start="1166" data-end="1189">«Отметить
+                                                материалы».</p>
+                                        </li>
+                                        <li data-start="1192" data-end="1233">
+                                            <p data-start="1194" data-end="1233">«Начать работу» /
+                                                «Завершить работу».</p>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <p data-start="1235" data-end="1271">👉 Экран: <strong data-start="1245"
+                                                                                  data-end="1271">WorkOrderDetailsScreen</strong>
+                            </p>
+                            <hr data-start="1273" data-end="1276">
+                            <h2 data-start="1278" data-end="1296">4. Фотофиксация</h2>
+                            <ul data-start="1297" data-end="1670">
+                                <li data-start="1297" data-end="1341">
+                                    <p data-start="1299" data-end="1341">Работник открывает камеру →
+                                        делает фото.</p>
+                                </li>
+                                <li data-start="1342" data-end="1469">
+                                    <p data-start="1344" data-end="1398">После фото появляется
+                                        диалог выбора <strong data-start="1380" data-end="1395">типа
+                                            снимка</strong>:</p>
+                                    <ul data-start="1401" data-end="1469">
+                                        <li data-start="1401" data-end="1421">
+                                            <p data-start="1403" data-end="1421">ДО начала
+                                                работ,</p>
+                                        </li>
+                                        <li data-start="1424" data-end="1435">
+                                            <p data-start="1426" data-end="1435">ДЕФЕКТ,</p>
+                                        </li>
+                                        <li data-start="1438" data-end="1456">
+                                            <p data-start="1440" data-end="1456">ПРОМЕЖУТОЧНОЕ,</p>
+                                        </li>
+                                        <li data-start="1459" data-end="1469">
+                                            <p data-start="1461" data-end="1469">ПОСЛЕ.</p>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li data-start="1470" data-end="1543">
+                                    <p data-start="1472" data-end="1543">Приложение автоматически
+                                        сохраняет фото с <strong data-start="1514" data-end="1529">геолокацией</strong>
+                                        и временем.</p>
+                                </li>
+                                <li data-start="1544" data-end="1591">
+                                    <p data-start="1546" data-end="1591">Фото появляется в списке на
+                                        экране деталей.</p>
+                                </li>
+                                <li data-start="1592" data-end="1670">
+                                    <p data-start="1594" data-end="1670">При синхронизации
+                                        отправляется на сервер (<code data-start="1636"
+                                                                      data-end="1666">POST
+                                            /workorders/{id}/photos</code>).</p>
+                                </li>
+                            </ul>
+                            <p data-start="1672" data-end="1719">👉 Экран: <strong data-start="1682"
+                                                                                  data-end="1719">CameraScreen
+                                + Dialog выбора типа</strong></p>
+                            <hr data-start="1721" data-end="1724">
+                            <h2 data-start="1726" data-end="1747">5. Учёт материалов</h2>
+                            <ul data-start="1748" data-end="1946">
+                                <li data-start="1748" data-end="1811">
+                                    <p data-start="1750" data-end="1811">Работник может отметить
+                                        использование расходных материалов.</p>
+                                </li>
+                                <li data-start="1812" data-end="1857">
+                                    <p data-start="1814" data-end="1857">Пример: «Краска — 2 литра,
+                                        кисть — 1 шт.»</p>
+                                </li>
+                                <li data-start="1858" data-end="1946">
+                                    <p data-start="1860" data-end="1946">Эти данные сохраняются и
+                                        отправляются на сервер (<code data-start="1909"
+                                                                      data-end="1942">POST
+                                            /workorders/{id}/materials</code>).</p>
+                                </li>
+                            </ul>
+                            <p data-start="1948" data-end="2009">👉 Экран: <strong data-start="1958"
+                                                                                  data-end="2009">MaterialUsageScreen
+                                (может быть частью деталей)</strong></p>
+                            <hr data-start="2011" data-end="2014">
+                            <h2 data-start="2016" data-end="2048">6. Управление статусом работы</h2>
+                            <ul data-start="2049" data-end="2412">
+                                <li data-start="2049" data-end="2150">
+                                    <p data-start="2051" data-end="2084">Когда работник начинает
+                                        работу:</p>
+                                    <ul data-start="2087" data-end="2150">
+                                        <li data-start="2087" data-end="2150">
+                                            <p data-start="2089" data-end="2150">Нажимает «Начать
+                                                работу» → статус становится <code data-start="2134"
+                                                                                  data-end="2147">IN_PROGRESS</code>.
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li data-start="2151" data-end="2211">
+                                    <p data-start="2153" data-end="2211">В процессе он может
+                                        добавлять фото и отмечать материалы.</p>
+                                </li>
+                                <li data-start="2212" data-end="2328">
+                                    <p data-start="2214" data-end="2239">Когда работа завершена:</p>
+                                    <ul data-start="2242" data-end="2328">
+                                        <li data-start="2242" data-end="2296">
+                                            <p data-start="2244" data-end="2296">Делает фото «ПОСЛЕ»
+                                                → нажимает «Завершить работу».</p>
+                                        </li>
+                                        <li data-start="2299" data-end="2328">
+                                            <p data-start="2301" data-end="2328">Статус становится
+                                                <code data-start="2319" data-end="2325">DONE</code>.
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li data-start="2329" data-end="2412">
+                                    <p data-start="2331" data-end="2412">После проверки
+                                        администратором на сервере работа может быть закрыта (<code
+                                                data-start="2400" data-end="2408">CLOSED</code>).
+                                    </p>
+                                </li>
+                            </ul>
+                            <p data-start="2414" data-end="2467">👉 Кнопки статуса внутри <strong
+                                    data-start="2439"
+                                    data-end="2465">WorkOrderDetailsScreen</strong></p>
+                            <hr data-start="2469" data-end="2472">
+                            <h2 data-start="2474" data-end="2493">7. Синхронизация</h2>
+                            <ul data-start="2494" data-end="2645">
+                                <li data-start="2494" data-end="2552">
+                                    <p data-start="2496" data-end="2552">Если сеть есть → все фото и
+                                        данные отправляются сразу.</p>
+                                </li>
+                                <li data-start="2553" data-end="2645">
+                                    <p data-start="2555" data-end="2645">Если сети нет → сохраняются
+                                        локально (Room), отправляются при восстановлении
+                                        соединения.</p>
+                                </li>
+                            </ul>
+                            <hr data-start="2647" data-end="2650">
+                            <h1 data-start="2652" data-end="2682">📱 Карта экранов (упрощённо)</h1>
+                            <ol data-start="2684" data-end="2916">
+                                <li data-start="2684" data-end="2711">
+                                    <p data-start="2687" data-end="2711"><strong data-start="2687"
+                                                                                 data-end="2702">LoginScreen</strong><br
+                                            data-start="2702" data-end="2705">
+                                        ↓</p>
+                                </li>
+                                <li data-start="2712" data-end="2748">
+                                    <p data-start="2715" data-end="2748"><strong data-start="2715"
+                                                                                 data-end="2739">WorkOrdersListScreen</strong><br
+                                            data-start="2739" data-end="2742">
+                                        ↓</p>
+                                </li>
+                                <li data-start="2749" data-end="2916">
+                                    <p data-start="2752" data-end="2780"><strong data-start="2752"
+                                                                                 data-end="2778">WorkOrderDetailsScreen</strong>
+                                    </p>
+                                    <ul data-start="2784" data-end="2916">
+                                        <li data-start="2784" data-end="2828">
+                                            <p data-start="2786" data-end="2828">Фотофиксация →
+                                                CameraScreen + выбор типа</p>
+                                        </li>
+                                        <li data-start="2832" data-end="2873">
+                                            <p data-start="2834" data-end="2873">Учёт материалов →
+                                                MaterialUsageScreen</p>
+                                        </li>
+                                        <li data-start="2877" data-end="2916">
+                                            <p data-start="2879" data-end="2916">Статус работы
+                                                (кнопки Start/Finish)</p>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ol>
+                            <hr data-start="2918" data-end="2921">
+                            <p data-start="2923" data-end="2937">Таким образом:</p>
+                            <ul data-start="2938" data-end="3141">
+                                <li data-start="2938" data-end="3064">
+                                    <p data-start="2940" data-end="3064">Все действия «до», «после»,
+                                        «дефекты» и т. д. <strong data-start="2986" data-end="3014">не
+                                            жёстко зашиты в этапы</strong> — работник сам указывает
+                                        тип фото при фиксации.</p>
+                                </li>
+                                <li data-start="3065" data-end="3141">
+                                    <p data-start="3067" data-end="3141">Администратор потом видит
+                                        полную историю и может анализировать по типам.</p>
+                                </li>
+                            </ul>
+                            <hr data-start="3143" data-end="3146">
+                            <p data-start="3148" data-end="3283" data-is-last-node=""
+                               data-is-only-node="">Хотите, я нарисую <strong data-start="3166"
+                                                                              data-end="3197">схему
+                                flow в виде диаграммы</strong> (например, блок-схема с экранами и
+                                переходами)? Это сильно помогает при планировании.</p></div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex min-h-[46px] justify-start">
+                <div class="touch:-me-2 touch:-ms-3.5 -ms-2.5 -me-1 flex flex-wrap items-center gap-y-4 p-1 select-none touch:w-[calc(100%+--spacing(3.5))] -mt-1 w-[calc(100%+--spacing(2.5))] duration-[1.5s] focus-within:transition-none hover:transition-none pointer-events-none [mask-image:linear-gradient(to_right,black_33%,transparent_66%)] [mask-size:300%_100%] [mask-position:100%_0%] motion-safe:transition-[mask-position] group-hover/turn-messages:pointer-events-auto group-hover/turn-messages:[mask-position:0_0] group-focus-within/turn-messages:pointer-events-auto group-focus-within/turn-messages:[mask-position:0_0] has-data-[state=open]:pointer-events-auto has-data-[state=open]:[mask-position:0_0]"
+                     style="mask-position: 0% 0%;">
+                    <button class="text-token-text-secondary hover:bg-token-bg-secondary rounded-lg"
+                            aria-label="Копировать" aria-pressed="false"
+                            data-testid="copy-turn-action-button" data-state="closed"><span
+                            class="flex items-center justify-center touch:w-10 h-8 w-8"><svg
+                            width="20" height="20" viewBox="0 0 20 20" fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg" class="icon"><path
+                            d="M12.668 10.667C12.668 9.95614 12.668 9.46258 12.6367 9.0791C12.6137 8.79732 12.5758 8.60761 12.5244 8.46387L12.4688 8.33399C12.3148 8.03193 12.0803 7.77885 11.793 7.60254L11.666 7.53125C11.508 7.45087 11.2963 7.39395 10.9209 7.36328C10.5374 7.33197 10.0439 7.33203 9.33301 7.33203H6.5C5.78896 7.33203 5.29563 7.33195 4.91211 7.36328C4.63016 7.38632 4.44065 7.42413 4.29688 7.47559L4.16699 7.53125C3.86488 7.68518 3.61186 7.9196 3.43555 8.20703L3.36524 8.33399C3.28478 8.49198 3.22795 8.70352 3.19727 9.0791C3.16595 9.46259 3.16504 9.95611 3.16504 10.667V13.5C3.16504 14.211 3.16593 14.7044 3.19727 15.0879C3.22797 15.4636 3.28473 15.675 3.36524 15.833L3.43555 15.959C3.61186 16.2466 3.86474 16.4807 4.16699 16.6348L4.29688 16.6914C4.44063 16.7428 4.63025 16.7797 4.91211 16.8027C5.29563 16.8341 5.78896 16.835 6.5 16.835H9.33301C10.0439 16.835 10.5374 16.8341 10.9209 16.8027C11.2965 16.772 11.508 16.7152 11.666 16.6348L11.793 16.5645C12.0804 16.3881 12.3148 16.1351 12.4688 15.833L12.5244 15.7031C12.5759 15.5594 12.6137 15.3698 12.6367 15.0879C12.6681 14.7044 12.668 14.211 12.668 13.5V10.667ZM13.998 12.665C14.4528 12.6634 14.8011 12.6602 15.0879 12.6367C15.4635 12.606 15.675 12.5492 15.833 12.4688L15.959 12.3975C16.2466 12.2211 16.4808 11.9682 16.6348 11.666L16.6914 11.5361C16.7428 11.3924 16.7797 11.2026 16.8027 10.9209C16.8341 10.5374 16.835 10.0439 16.835 9.33301V6.5C16.835 5.78896 16.8341 5.29563 16.8027 4.91211C16.7797 4.63025 16.7428 4.44063 16.6914 4.29688L16.6348 4.16699C16.4807 3.86474 16.2466 3.61186 15.959 3.43555L15.833 3.36524C15.675 3.28473 15.4636 3.22797 15.0879 3.19727C14.7044 3.16593 14.211 3.16504 13.5 3.16504H10.667C9.9561 3.16504 9.46259 3.16595 9.0791 3.19727C8.79739 3.22028 8.6076 3.2572 8.46387 3.30859L8.33399 3.36524C8.03176 3.51923 7.77886 3.75343 7.60254 4.04102L7.53125 4.16699C7.4508 4.32498 7.39397 4.53655 7.36328 4.91211C7.33985 5.19893 7.33562 5.54719 7.33399 6.00195H9.33301C10.022 6.00195 10.5791 6.00131 11.0293 6.03809C11.4873 6.07551 11.8937 6.15471 12.2705 6.34668L12.4883 6.46875C12.984 6.7728 13.3878 7.20854 13.6533 7.72949L13.7197 7.87207C13.8642 8.20859 13.9292 8.56974 13.9619 8.9707C13.9987 9.42092 13.998 9.97799 13.998 10.667V12.665ZM18.165 9.33301C18.165 10.022 18.1657 10.5791 18.1289 11.0293C18.0961 11.4302 18.0311 11.7914 17.8867 12.1279L17.8203 12.2705C17.5549 12.7914 17.1509 13.2272 16.6553 13.5313L16.4365 13.6533C16.0599 13.8452 15.6541 13.9245 15.1963 13.9619C14.8593 13.9895 14.4624 13.9935 13.9951 13.9951C13.9935 14.4624 13.9895 14.8593 13.9619 15.1963C13.9292 15.597 13.864 15.9576 13.7197 16.2939L13.6533 16.4365C13.3878 16.9576 12.9841 17.3941 12.4883 17.6982L12.2705 17.8203C11.8937 18.0123 11.4873 18.0915 11.0293 18.1289C10.5791 18.1657 10.022 18.165 9.33301 18.165H6.5C5.81091 18.165 5.25395 18.1657 4.80371 18.1289C4.40306 18.0962 4.04235 18.031 3.70606 17.8867L3.56348 17.8203C3.04244 17.5548 2.60585 17.151 2.30176 16.6553L2.17969 16.4365C1.98788 16.0599 1.90851 15.6541 1.87109 15.1963C1.83431 14.746 1.83496 14.1891 1.83496 13.5V10.667C1.83496 9.978 1.83432 9.42091 1.87109 8.9707C1.90851 8.5127 1.98772 8.10625 2.17969 7.72949L2.30176 7.51172C2.60586 7.0159 3.04236 6.6122 3.56348 6.34668L3.70606 6.28027C4.04237 6.136 4.40303 6.07083 4.80371 6.03809C5.14051 6.01057 5.53708 6.00551 6.00391 6.00391C6.00551 5.53708 6.01057 5.14051 6.03809 4.80371C6.0755 4.34588 6.15483 3.94012 6.34668 3.56348L6.46875 3.34473C6.77282 2.84912 7.20856 2.44514 7.72949 2.17969L7.87207 2.11328C8.20855 1.96886 8.56979 1.90385 8.9707 1.87109C9.42091 1.83432 9.978 1.83496 10.667 1.83496H13.5C14.1891 1.83496 14.746 1.83431 15.1963 1.87109C15.6541 1.90851 16.0599 1.98788 16.4365 2.17969L16.6553 2.30176C17.151 2.60585 17.5548 3.04244 17.8203 3.56348L17.8867 3.70606C18.031 4.04235 18.0962 4.40306 18.1289 4.80371C18.1657 5.25395 18.165 5.81091 18.165 6.5V9.33301Z"></path></svg></span>
+                    </button>
+                    <button class="text-token-text-secondary hover:bg-token-bg-secondary rounded-lg"
+                            aria-label="Хороший ответ" aria-pressed="false"
+                            data-testid="good-response-turn-action-button" data-state="closed"><span
+                            class="flex items-center justify-center touch:w-10 h-8 w-8"><svg
+                            width="20" height="20" viewBox="0 0 20 20" fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg" class="icon"><path
+                            d="M10.9153 1.83987L11.2942 1.88772L11.4749 1.91507C13.2633 2.24201 14.4107 4.01717 13.9749 5.78225L13.9261 5.95901L13.3987 7.6719C13.7708 7.67575 14.0961 7.68389 14.3792 7.70608C14.8737 7.74486 15.3109 7.82759 15.7015 8.03323L15.8528 8.11819C16.5966 8.56353 17.1278 9.29625 17.3167 10.1475L17.347 10.3096C17.403 10.69 17.3647 11.0832 17.2835 11.5098C17.2375 11.7517 17.1735 12.0212 17.096 12.3233L16.8255 13.3321L16.4456 14.7276C16.2076 15.6001 16.0438 16.2356 15.7366 16.7305L15.595 16.9346C15.2989 17.318 14.9197 17.628 14.4866 17.8408L14.2982 17.9258C13.6885 18.1774 12.9785 18.1651 11.9446 18.1651H7.33331C6.64422 18.1651 6.08726 18.1657 5.63702 18.1289C5.23638 18.0962 4.87565 18.031 4.53936 17.8867L4.39679 17.8203C3.87576 17.5549 3.43916 17.151 3.13507 16.6553L3.013 16.4366C2.82119 16.0599 2.74182 15.6541 2.7044 15.1963C2.66762 14.7461 2.66827 14.1891 2.66827 13.5V11.667C2.66827 10.9349 2.66214 10.4375 2.77569 10.0137L2.83722 9.81253C3.17599 8.81768 3.99001 8.05084 5.01397 7.77639L5.17706 7.73928C5.56592 7.66435 6.02595 7.66799 6.66632 7.66799C6.9429 7.66799 7.19894 7.52038 7.33624 7.2803L10.2562 2.16995L10.3118 2.08792C10.4544 1.90739 10.6824 1.81092 10.9153 1.83987ZM7.33136 14.167C7.33136 14.9841 7.33714 15.2627 7.39386 15.4746L7.42999 15.5918C7.62644 16.1686 8.09802 16.6134 8.69171 16.7725L8.87042 16.8067C9.07652 16.8323 9.38687 16.835 10.0003 16.835H11.9446C13.099 16.835 13.4838 16.8228 13.7903 16.6963L13.8997 16.6465C14.1508 16.5231 14.3716 16.3444 14.5433 16.1221L14.6155 16.0166C14.7769 15.7552 14.8968 15.3517 15.1624 14.378L15.5433 12.9824L15.8079 11.9922C15.8804 11.7102 15.9368 11.4711 15.9769 11.2608C16.0364 10.948 16.0517 10.7375 16.0394 10.5791L16.0179 10.4356C15.9156 9.97497 15.641 9.57381 15.2542 9.31253L15.0814 9.20999C14.9253 9.12785 14.6982 9.06544 14.2747 9.03225C13.8477 8.99881 13.2923 8.99807 12.5003 8.99807C12.2893 8.99807 12.0905 8.89822 11.9651 8.72854C11.8398 8.55879 11.8025 8.33942 11.8646 8.13772L12.6556 5.56741L12.7054 5.36331C12.8941 4.35953 12.216 3.37956 11.1878 3.2178L8.49054 7.93948C8.23033 8.39484 7.81431 8.72848 7.33136 8.88967V14.167ZM3.99835 13.5C3.99835 14.2111 3.99924 14.7044 4.03058 15.0879C4.06128 15.4636 4.11804 15.675 4.19854 15.833L4.26886 15.959C4.44517 16.2466 4.69805 16.4808 5.0003 16.6348L5.13019 16.6905C5.27397 16.7419 5.46337 16.7797 5.74542 16.8028C5.97772 16.8217 6.25037 16.828 6.58722 16.8311C6.41249 16.585 6.27075 16.3136 6.1712 16.0215L6.10968 15.8194C5.99614 15.3956 6.00128 14.899 6.00128 14.167V9.00296C5.79386 9.0067 5.65011 9.01339 5.53741 9.02737L5.3587 9.06057C4.76502 9.21965 4.29247 9.66448 4.09601 10.2412L4.06085 10.3584C4.00404 10.5705 3.99835 10.8493 3.99835 11.667V13.5Z"></path></svg></span>
+                    </button>
+                    <button class="text-token-text-secondary hover:bg-token-bg-secondary rounded-lg"
+                            aria-label="Плохой ответ" aria-pressed="false"
+                            data-testid="bad-response-turn-action-button" data-state="closed"><span
+                            class="flex items-center justify-center touch:w-10 h-8 w-8"><svg
+                            width="20" height="20" viewBox="0 0 20 20" fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg" class="icon"><path
+                            d="M12.6687 5.83304C12.6687 5.22006 12.6649 4.91019 12.6394 4.70413L12.6062 4.52542C12.4471 3.93179 12.0022 3.45922 11.4255 3.26272L11.3083 3.22757C11.0963 3.17075 10.8175 3.16507 9.99974 3.16507H8.0554C7.04558 3.16507 6.62456 3.17475 6.32982 3.26175L6.2097 3.30374C5.95005 3.41089 5.71908 3.57635 5.53392 3.78616L5.45677 3.87796C5.30475 4.0748 5.20336 4.33135 5.03392 4.91702L4.83763 5.6221L4.45677 7.01761C4.24829 7.78204 4.10326 8.31846 4.02318 8.73929C3.94374 9.15672 3.94298 9.39229 3.98119 9.56448L4.03587 9.75784C4.18618 10.1996 4.50043 10.5702 4.91771 10.7901L5.05052 10.8477C5.20009 10.9014 5.40751 10.9429 5.72533 10.9678C6.15231 11.0012 6.70771 11.002 7.49974 11.002C7.71076 11.002 7.90952 11.1018 8.0349 11.2715C8.14465 11.4201 8.18683 11.6067 8.15404 11.7862L8.13548 11.8623L7.34447 14.4326C7.01523 15.5033 7.71404 16.6081 8.81126 16.7813L11.5095 12.0606L11.5827 11.9405C11.8445 11.5461 12.2289 11.2561 12.6687 11.1094V5.83304ZM17.3318 8.33304C17.3318 8.97366 17.3364 9.43432 17.2615 9.82327L17.2234 9.98538C16.949 11.0094 16.1821 11.8233 15.1872 12.1621L14.9861 12.2237C14.5624 12.3372 14.0656 12.3321 13.3337 12.3321C13.0915 12.3321 12.8651 12.4453 12.7204 12.6348L12.6638 12.7198L9.74388 17.8301C9.61066 18.0631 9.35005 18.1935 9.08372 18.1602L8.70579 18.1123C6.75379 17.8682 5.49542 15.9213 6.07396 14.041L6.60033 12.3272C6.22861 12.3233 5.90377 12.3161 5.62083 12.294C5.18804 12.26 4.79914 12.1931 4.44701 12.0391L4.29857 11.9668C3.52688 11.5605 2.95919 10.8555 2.72533 10.0205L2.68333 9.85257C2.58769 9.42154 2.62379 8.97768 2.71654 8.49026C2.80865 8.00634 2.97082 7.41139 3.17357 6.668L3.55443 5.27249L3.74583 4.58011C3.9286 3.94171 4.10186 3.45682 4.40404 3.06546L4.53685 2.9053C4.85609 2.54372 5.25433 2.25896 5.70189 2.07425L5.93626 1.99222C6.49455 1.82612 7.15095 1.83499 8.0554 1.83499H12.6667C13.3558 1.83499 13.9128 1.83434 14.363 1.87112C14.8208 1.90854 15.2266 1.98789 15.6033 2.17972L15.821 2.30179C16.317 2.6059 16.7215 3.04226 16.987 3.56351L17.0535 3.70608C17.1977 4.04236 17.2629 4.40311 17.2956 4.80374C17.3324 5.25398 17.3318 5.81094 17.3318 6.50003V8.33304ZM13.9978 10.9961C14.3321 10.9901 14.5013 10.977 14.6413 10.9395L14.7585 10.9033C15.3353 10.7069 15.7801 10.2353 15.9392 9.64163L15.9724 9.46292C15.998 9.25682 16.0017 8.94657 16.0017 8.33304V6.50003C16.0017 5.78899 16.0008 5.29566 15.9695 4.91214C15.9464 4.6301 15.9086 4.44069 15.8572 4.2969L15.8015 4.16702C15.6475 3.86478 15.4133 3.6119 15.1257 3.43558L14.9997 3.36526C14.8418 3.28477 14.6302 3.228 14.2546 3.19729C14.0221 3.1783 13.7491 3.17109 13.4118 3.168C13.6267 3.47028 13.7914 3.81126 13.8904 4.18069L13.9275 4.34378C13.981 4.62163 13.9947 4.93582 13.9978 5.3262V10.9961Z"></path></svg></span>
+                    </button>
+                    <button class="text-token-text-secondary hover:bg-token-bg-secondary rounded-lg"
+                            aria-label="Поделиться" aria-pressed="false" data-state="closed"><span
+                            class="flex items-center justify-center touch:w-10 h-8 w-8"><svg
+                            width="20" height="20" viewBox="0 0 20 20" fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg" class="icon"><path
+                            d="M2.66821 12.6663V12.5003C2.66821 12.1331 2.96598 11.8353 3.33325 11.8353C3.70052 11.8353 3.99829 12.1331 3.99829 12.5003V12.6663C3.99829 13.3772 3.9992 13.8707 4.03052 14.2542C4.0612 14.6298 4.11803 14.8413 4.19849 14.9993L4.2688 15.1263C4.44511 15.4137 4.69813 15.6481 5.00024 15.8021L5.13013 15.8577C5.2739 15.9092 5.46341 15.947 5.74536 15.97C6.12888 16.0014 6.62221 16.0013 7.33325 16.0013H12.6663C13.3771 16.0013 13.8707 16.0014 14.2542 15.97C14.6295 15.9394 14.8413 15.8825 14.9993 15.8021L15.1262 15.7308C15.4136 15.5545 15.6481 15.3014 15.802 14.9993L15.8577 14.8695C15.9091 14.7257 15.9469 14.536 15.97 14.2542C16.0013 13.8707 16.0012 13.3772 16.0012 12.6663V12.5003C16.0012 12.1332 16.2991 11.8355 16.6663 11.8353C17.0335 11.8353 17.3313 12.1331 17.3313 12.5003V12.6663C17.3313 13.3553 17.3319 13.9124 17.2952 14.3626C17.2624 14.7636 17.1974 15.1247 17.053 15.4613L16.9866 15.6038C16.7211 16.1248 16.3172 16.5605 15.8215 16.8646L15.6038 16.9866C15.227 17.1786 14.8206 17.2578 14.3625 17.2952C13.9123 17.332 13.3553 17.3314 12.6663 17.3314H7.33325C6.64416 17.3314 6.0872 17.332 5.63696 17.2952C5.23642 17.2625 4.87552 17.1982 4.53931 17.054L4.39673 16.9866C3.87561 16.7211 3.43911 16.3174 3.13501 15.8216L3.01294 15.6038C2.82097 15.2271 2.74177 14.8206 2.70435 14.3626C2.66758 13.9124 2.66821 13.3553 2.66821 12.6663ZM9.33521 12.5003V4.9388L7.13696 7.13704C6.87732 7.39668 6.45625 7.39657 6.19653 7.13704C5.93684 6.87734 5.93684 6.45631 6.19653 6.19661L9.52954 2.86263L9.6311 2.77962C9.73949 2.70742 9.86809 2.66829 10.0002 2.66829C10.1763 2.66838 10.3454 2.73819 10.47 2.86263L13.804 6.19661C14.0633 6.45628 14.0634 6.87744 13.804 7.13704C13.5443 7.39674 13.1222 7.39674 12.8625 7.13704L10.6653 4.93977V12.5003C10.6651 12.8673 10.3673 13.1652 10.0002 13.1654C9.63308 13.1654 9.33538 12.8674 9.33521 12.5003Z"></path></svg></span>
+                    </button>
+                    <span class="" data-state="closed"><button type="button" id="radix-«rqa»"
+                                                               aria-haspopup="menu"
+                                                               aria-expanded="false"
+                                                               data-state="closed"
+                                                               class="cursor-pointer text-token-text-secondary hover:bg-token-bg-secondary touch:px-2.5 h-[30px] rounded-md px-1.5"
+                                                               aria-label="Сменить модель"><div
+                            class="flex items-center"><svg width="20" height="20"
+                                                           viewBox="0 0 20 20" fill="currentColor"
+                                                           xmlns="http://www.w3.org/2000/svg"
+                                                           class="icon"><path
+                            d="M3.502 16.6663V13.3333C3.502 12.9661 3.79977 12.6683 4.16704 12.6683H7.50004L7.63383 12.682C7.93691 12.7439 8.16508 13.0119 8.16508 13.3333C8.16508 13.6547 7.93691 13.9227 7.63383 13.9847L7.50004 13.9984H5.47465C6.58682 15.2249 8.21842 16.0013 10 16.0013C13.06 16.0012 15.5859 13.711 15.9551 10.7513L15.9854 10.6195C16.0845 10.3266 16.3785 10.1334 16.6973 10.1732C17.0617 10.2186 17.3198 10.551 17.2745 10.9154L17.2247 11.2523C16.6301 14.7051 13.6224 17.3313 10 17.3314C8.01103 17.3314 6.17188 16.5383 4.83208 15.2474V16.6663C4.83208 17.0335 4.53411 17.3311 4.16704 17.3314C3.79977 17.3314 3.502 17.0336 3.502 16.6663ZM4.04497 9.24935C3.99936 9.61353 3.66701 9.87178 3.30278 9.8265C2.93833 9.78105 2.67921 9.44876 2.72465 9.08431L4.04497 9.24935ZM10 2.66829C11.9939 2.66833 13.8372 3.46551 15.1778 4.76204V3.33333C15.1778 2.96616 15.4757 2.66844 15.8428 2.66829C16.2101 2.66829 16.5079 2.96606 16.5079 3.33333V6.66634C16.5079 7.03361 16.2101 7.33138 15.8428 7.33138H12.5098C12.1425 7.33138 11.8448 7.03361 11.8448 6.66634C11.8449 6.29922 12.1426 6.0013 12.5098 6.0013H14.5254C13.4133 4.77488 11.7816 3.99841 10 3.99837C6.93998 3.99837 4.41406 6.28947 4.04497 9.24935L3.38481 9.16634L2.72465 9.08431C3.17574 5.46702 6.26076 2.66829 10 2.66829Z"></path></svg></div></button></span>
+                    <button class="text-token-text-secondary hover:bg-token-bg-secondary touch:w-10 flex h-8 w-8 items-center justify-center rounded-lg"
+                            aria-label="Больше действий" type="button" id="radix-«rqd»"
+                            aria-haspopup="menu" aria-expanded="false" data-state="closed">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"
+                             xmlns="http://www.w3.org/2000/svg" class="icon">
+                            <path d="M15.498 8.50159C16.3254 8.50159 16.9959 9.17228 16.9961 9.99963C16.9961 10.8271 16.3256 11.4987 15.498 11.4987C14.6705 11.4987 14 10.8271 14 9.99963C14.0002 9.17228 14.6706 8.50159 15.498 8.50159Z"></path>
+                            <path d="M4.49805 8.50159C5.32544 8.50159 5.99689 9.17228 5.99707 9.99963C5.99707 10.8271 5.32555 11.4987 4.49805 11.4987C3.67069 11.4985 3 10.827 3 9.99963C3.00018 9.17239 3.6708 8.50176 4.49805 8.50159Z"></path>
+                            <path d="M10.0003 8.50159C10.8276 8.50176 11.4982 9.17239 11.4984 9.99963C11.4984 10.827 10.8277 11.4985 10.0003 11.4987C9.17283 11.4987 8.50131 10.8271 8.50131 9.99963C8.50149 9.17228 9.17294 8.50159 10.0003 8.50159Z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="mt-3 w-full empty:hidden">
+                <div class="text-center"></div>
+            </div>
+        </div>
+    </div>
+</article>
+</body>
+</html>

@@ -12,6 +12,7 @@ val Context.userPreferencesDataStore by preferencesDataStore(name = "user_prefer
 
 object PreferenceKeys {
     val COORD_FORMAT = stringPreferencesKey("coord_format")
+    val THEME_KEY = stringPreferencesKey("theme_mode")
 }
 
 class UserPreferencesRepository(private val context: Context) {
@@ -24,6 +25,17 @@ class UserPreferencesRepository(private val context: Context) {
     suspend fun setCoordFormat(value: String) {
         context.userPreferencesDataStore.edit { preferences ->
             preferences[PreferenceKeys.COORD_FORMAT] = value
+        }
+    }
+
+    val themeFlow: Flow<ThemeMode> = context.userPreferencesDataStore.data
+        .map { preferences ->
+            ThemeMode.fromValue(preferences[PreferenceKeys.THEME_KEY] ?: ThemeMode.SYSTEM.value)
+        }
+
+    suspend fun setThemeMode(mode: ThemeMode) {
+        context.userPreferencesDataStore.edit { preferences ->
+            preferences[PreferenceKeys.THEME_KEY] = mode.value
         }
     }
 }
